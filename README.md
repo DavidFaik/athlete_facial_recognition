@@ -105,5 +105,4 @@ python webCam.py
 5) OpenCV draws bounding boxes and labels on the video stream.
 
 ## Acknowledgments
-- [OpenCV](https://opencv.org/)
 - [face_recognition (dlib)](https://github.com/ageitgey/face_recognition)
