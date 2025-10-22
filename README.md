@@ -13,17 +13,12 @@ Real‑time face recognition from a webcam using OpenCV and the `face_recognitio
 ```
 .
 ├─ images/                           # Known faces (used by root-level scripts)
-├─ source code/
-│  ├─ images/                        # Known faces (used by scripts in this folder)
-│  ├─ main_video.py                  # Live recognition (camera index = 0)
-│  ├─ simple_facerec.py              # Face encoding + matching helper
-│  └─ image_comparison.py            # Compare two images
-├─ main_video.py                     # Live recognition (camera index = 2)
-├─ simple_facerec.py                 # Face encoding + matching helper (duplicate)
-├─ webCam.py                         # Live recognition + Excel overlay
+├─ image_comparison.py               # Compare two images
+├─ main_video.py                     # Live recognition
+├─ simple_facerec.py                 # Face encoding + matching helper
 ├─ faceRec.py                        # Simple two-image compare example
-├─ Stats.xlsx                        # Example metadata for overlay
-└─ (other assets)
+├─ webCam.py                         # Live recognition + Excel overlay
+└─ Stats.xlsx                        # Example metadata for overlay
 ```
 Note: There are duplicate scripts both at the repository root and under `source code/`. Use either location consistently (run the script from the same folder that contains it, and keep an `images/` folder next to it).
 
@@ -66,15 +61,11 @@ conda install -c conda-forge dlib face_recognition opencv numpy pandas openpyxl 
 
 2) Run live recognition (choose one location and run from that folder):
 ```bash
-# Option A: From repository root (uses ./images/ and ./simple_facerec.py)
-python main_video.py
-
-# Option B: From inside the "source code" folder (uses ./images/ and ./simple_facerec.py in that folder)
-cd "source code"
+From repository root (uses ./images/ and ./simple_facerec.py)
 python main_video.py
 ```
 - Press `Esc` to quit the video window.
-- If the wrong camera opens, change the index in `cv2.VideoCapture(<index>)` inside `main_video.py` (try 0, 1, 2, ...).
+- If the wrong camera opens, change the index in `cv2.VideoCapture(<index>)` inside `main_video.py`.
 
 3) Compare two images:
 ```bash
@@ -104,9 +95,6 @@ python webCam.py
   - Use clear, front-facing training photos with good lighting.
   - Provide multiple images per person if recognition is inconsistent.
   - Verify the `images/` folder path matches where you run the script.
-- Import errors for `simple_facerec`:
-  - Run the script from the folder that contains a matching `simple_facerec.py`.
-  - Avoid mixing root-level and `source code/` scripts in the same run.
 - Camera not opening:
   - Try changing the index (0/1/2/...). Ensure other apps aren’t using the camera.
 
@@ -120,7 +108,3 @@ python webCam.py
 ## Acknowledgments
 - [OpenCV](https://opencv.org/)
 - [face_recognition (dlib)](https://github.com/ageitgey/face_recognition)
-
----
-If you’d like, I can standardize the folder layout (remove duplicates, ensure imports are consistent) and add a `requirements.txt`. Let me know.
-
