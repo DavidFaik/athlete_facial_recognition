@@ -20,7 +20,6 @@ Real‑time face recognition from a webcam using OpenCV and the `face_recognitio
 ├─ webCam.py                         # Live recognition + Excel overlay
 └─ Stats.xlsx                        # Example metadata for overlay
 ```
-Note: There are duplicate scripts both at the repository root and under `source code/`. Use either location consistently (run the script from the same folder that contains it, and keep an `images/` folder next to it).
 
 ## Requirements
 - Python 3.8+ (tested with CPython)
